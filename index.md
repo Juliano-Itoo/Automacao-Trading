@@ -1,6 +1,6 @@
 ##  Automatização de Negociação -  Contratos Futuros - USD/BRL
 
-O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de regras “estratégias” de análise técnica (TA) aplicadas ao contrato futuro derivativo da taxa de câmbio de reais por dólar comercial.
+O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de regras “estratégias” de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
 
 O dólar, atualmente é a moeda mais negociada na B3, antiga BOVESPA e também segundo Hernandez et al. (2017), a moeda mais negociada mundialmente, nas principais bolsas de valores internacionais como Nova York (E.U.A), Frankfurt (Alemanha), Paris (França), Xangai (China), Tóquio (Japão), dentre outras, de acordo com o relatório diário de volume cambial negociado elaborado pela B3. Segundo a B3, A negociação do contrato futuro de taxa de câmbio de reais por dólar comercial é utilizada mundialmente para proteção de ativos e do câmbio em si, tornando-se uma forma de garantir compromissos de compra e venda em vários contratos realizados entre as diversas instituições financeiras e de câmbio, participantes do mercado.
 
