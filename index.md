@@ -134,7 +134,7 @@ quantmod::chartSeries(DOLAR_2021_QUINZENA01_MES01,
 
 ```
 
-A tabela 02 apresenta as 10 primeiras linhas de um total de 26.380 linhas do histórico de negociação no timeframe de 05 minutos, para o ano de 2021 referentes ao contrato futuro de taxa de câmbio de reais por dólar comercial:
+A abaixo apresenta as 10 primeiras linhas de um total de 26.380 linhas do histórico de negociação no timeframe de 05 minutos, para o ano de 2021 referentes ao contrato futuro de taxa de câmbio de reais por dólar comercial:
 
 ### Desenvolvimento das Regras "Estratégias" de Negociação
 
