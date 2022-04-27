@@ -93,11 +93,11 @@ View(dolar)
 # Removendo Linhas Data Frame
 
 #Dados 2020
-DOLAR <- -dolar [-(1:1634)]
+DOLAR <- dolar [-(1:1634)]
 View(DOLAR)
 
 #Dados 2022
-DOLAR_2021 <- -DOLAR [-(26380:33366)]
+DOLAR_2021 <- DOLAR [-(26380:33366)]
 View(DOLAR_2021)
 
 #Calculo de Indicadores
@@ -125,7 +125,7 @@ tail(vwap_12)
 #Plotando Grafico com indicadores de Periodo (1ª Quinzena Janeiro 2021)
 
 #Criar base de Dados:
-DOLAR_2021_QUINZENA01_MES01 <- -DOLAR_2021 [-(1141:26379)]
+DOLAR_2021_QUINZENA01_MES01 <- DOLAR_2021 [-(1141:26379)]
 quantmod::chartSeries(DOLAR_2021_QUINZENA01_MES01,
                       type="candlesticks",
                       subset='2021-01',
@@ -134,9 +134,13 @@ quantmod::chartSeries(DOLAR_2021_QUINZENA01_MES01,
 
 ```
 
-A tabela abaixo apresenta as 10 primeiras linhas de um total de 26.380 linhas do histórico de negociação no timeframe de 05 minutos, para o ano de 2021 referentes ao contrato futuro de taxa de câmbio de reais por dólar comercial:
+A tabela, apresenta as 10 primeiras linhas de um total de 26.380 linhas do histórico de negociação no timeframe de 05 minutos, para o ano de 2021 referentes ao contrato futuro de taxa de câmbio de reais por dólar comercial:
 
 ![image](https://user-images.githubusercontent.com/104097497/165585552-67ffe9f4-d472-491a-bf0a-4ff68b32ac51.png)
+
+A figura, representa o histórico de negociações do dólar, referente a primeira quinzena de janeiro de 2021, com a plotagem dos indicadores MACD e as médias móveis de 12 e 108 períodos, respectivamente:
+
+![image](https://user-images.githubusercontent.com/104097497/165602285-b99402b2-9f35-42de-89ca-9c37f4fb3b67.png)
 
 
 ### Desenvolvimento das Regras "Estratégias" de Negociação
