@@ -1,4 +1,4 @@
-##  Automação de Trading -  Contratos Futur - USD/BRL
+##  Automação de Trading -  Contratos Futur - USD/BRl
 
 You can use the [editor on GitHub](https://github.com/Juliano-Itoo/Juliano-Itoo.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
