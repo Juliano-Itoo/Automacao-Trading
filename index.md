@@ -284,14 +284,21 @@ Os sinais de negociação são gerados a partir dos indicadores de negociação.
 No quantstrat , existem três maneiras de usar um sinal. É referido como nome :
 
 sigThreshold: mais ou menos que um valor fixo
+
 sigCrossover: quando dois sinais se cruzam
+
 sigComparsion: compara dois sinais
 
 A coluna refere-se aos dados para cálculo do sinal. Existem cinco relações possíveis :
+
 gt = maior que
+
 gte = maior ou igual a
+
 lt = menor que
+
 lte = menor ou igual a
+
 eq = igual a
 
 O sinal de compra aparece quando SMA12 é maior que SMA72. Os sinais de venda aparecem quando SMA12 é menor que SMA72.
