@@ -29,6 +29,7 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 ("braverock/blotter")
 ("PerformanceAnalytics")
 ("braverock/quantstrat")
+("foreach")
 
 ### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
 
@@ -76,6 +77,7 @@ install.packages("FinancialInstrument")
 install_github("braverock/blotter")
 install.packages("PerformanceAnalytics")
 devtools :: install_github ("braverock/quantstrat", force = T)
+install.packages("foreach")
 
 #Chamar pacotes necessários
 library(quantmod)
@@ -86,6 +88,7 @@ library(blotter)
 library(FinancialInstrument)
 library(PerformanceAnalytics)
 library(quantstrat)
+library(foreach)
 
 #Chamar dados
 
@@ -149,7 +152,11 @@ A figura, representa o histórico de negociações do dólar, referente a primei
 
 ### 3. Desenvolvimento das Regras "Estratégias" de Negociação
 
-As regras...
+As regras "Estratégias" foram desenvolvidas utilizando-se de ferramentas específicas dos pacotes ('quantmod') e ("braverock/quantstrat"), os outros pacotes são necessários para auxílio e suporte na elaboração dos resultados e plotagem dos dados de risco/retorno.
+
+A Palavara "Quantmod" significa "quadro de modelagem financeira quantitativa" e este pacote do "R" possui três funções principais:  baixar dados, gerar e plotar gráficos e  Calcular indicadores técnicos.
+
+O quanstrat ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
 
 ### 3.1 Regra "Estratégia" - Média Móvel
 A Regra...
