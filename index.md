@@ -262,6 +262,63 @@ strategy(strategy.st, store=TRUE)
 
 ### 3.1.2 Etapa 2 - Definição de Indicador
 
+O indicador é apenas uma função baseada no preço. Agora adicio-se dois indicadores: SMA12 e SMA72. Para a função SMA, precisamos informar o vetor de preços e o número de períodos:
+
+```markdown
+
+add.indicator(
+  strategy.st, name="SMA",
+  arguments=list(x=quote(Cl(mktdata)), n=72),
+  label="sma72")
+
+add.indicator(
+  strategy.st, name="SMA",
+  arguments=list(x=quote(Cl(mktdata)), n=12),
+  label="sma12")
+
+```
+
+### 3.1.3 Etapa 3 - Adição de Sinais
+
+Os sinais de negociação são gerados a partir dos indicadores de negociação. Por exemplo, uma regra de negociação simples determina que há um sinal de compra quando o filtro excede determinado limite.
+No quantstrat , existem três maneiras de usar um sinal. É referido como nome :
+
+sigThreshold: mais ou menos que um valor fixo
+sigCrossover: quando dois sinais se cruzam
+sigComparsion: compara dois sinais
+
+A coluna refere-se aos dados para cálculo do sinal. Existem cinco relações possíveis :
+gt = maior que
+gte = maior ou igual a
+lt = menor que
+lte = menor ou igual a
+eq = igual a
+
+O sinal de compra aparece quando SMA12 é maior que SMA72. Os sinais de venda aparecem quando SMA12 é menor que SMA72.
+
+Aqui, vamos fazer o cruzamento de sinais para que definamos name como sigCrossover. Vamos cruzar dois sinais: sma12 e sma72. Então a relação é maior do que para comprar e menor do que para menos. Chamamos o primeiro de sinal de compra e o último de sinal de venda:
+
+```markdown
+
+add.signal(
+  strategy.st, 
+  name="sigCrossover",
+  arguments=list(columns=c("sma12","sma72"),
+                 relationship="gt"),
+  label="buy")
+
+add.signal(
+  strategy.st, 
+  name="sigCrossover",
+  arguments=list(columns=c("sma12","sma72"), 
+                 relationship="lt"), 
+  label="sell")
+
+```
+
+### 3.1.4 Etapa 4 - Adição de Regras "Estratégias"
+
+
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
