@@ -1,8 +1,12 @@
-##  Automatização de Negociação -  Contratos Futuros - USD/BRL
+##  1. Automatização de Negociação -  Contratos Futuros - USD/BRL
 
-O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de regras “estratégias” de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
+O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de regras “estratégias” de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
 
-O dólar, atualmente é a moeda mais negociada na B3, antiga BOVESPA e também segundo Hernandez et al. (2017), a moeda mais negociada mundialmente, nas principais bolsas de valores internacionais como Nova York (E.U.A), Frankfurt (Alemanha), Paris (França), Xangai (China), Tóquio (Japão), dentre outras, de acordo com o relatório diário de volume cambial negociado elaborado pela B3. Segundo a B3, A negociação do contrato futuro de taxa de câmbio de reais por dólar comercial é utilizada mundialmente para proteção de ativos e do câmbio em si, tornando-se uma forma de garantir compromissos de compra e venda em vários contratos realizados entre as diversas instituições financeiras e de câmbio, participantes do mercado.
+"R" é uma linguagem de computador de alto nível projetada para estatísticas e gráficos. Uma característica principal é a linguagem de programa vetorial como o Matlab. Foi inicialmente criado por Ross Ihaka e Robert Gentleman (Departamento de Estatística da Universidade de Auckland, Nova Zelândia, e daí o nome). Atualmente, é um software de código aberto gratuito mantido por vários contribuidores.
+
+Comparado com alternativas, SAS, Matlab ou Stata, R é totalmente gratuito. Outra vantagem é que é open source. Isso significa que não há caixa preta para tudo que você usa. Você sabe o que está fazendo. Também é livremente dispensável para que você possa fazer o que quiser. RStudio é um editor de desenvolvimento integrado (IDE) para R. É mais fácil escrever código usando o editor.
+
+Em consonância, o dólar, atualmente é a moeda mais negociada na B3, antiga BOVESPA e também segundo Hernandez et al. (2017), a moeda mais negociada mundialmente, nas principais bolsas de valores internacionais como Nova York (E.U.A), Frankfurt (Alemanha), Paris (França), Xangai (China), Tóquio (Japão), dentre outras, de acordo com o relatório diário de volume cambial negociado elaborado pela B3. Segundo a B3, A negociação do contrato futuro de taxa de câmbio de reais por dólar comercial é utilizada mundialmente para proteção de ativos e do câmbio em si, tornando-se uma forma de garantir compromissos de compra e venda em vários contratos realizados entre as diversas instituições financeiras e de câmbio, participantes do mercado.
 
 Ainda segundo a B3, o Contrato Futuro de Dólar dos Estados Unidos da América pode servir também para proteção ou especulação sobre o preço da moeda em data futura, assim como para investidores que, por exemplo, tenham recebíveis em dólares dos Estados Unidos da América, ou exposição para pagamentos de passivos na moeda em datas futuras ou até mesmo negociar sobre a tendência da moeda no futuro e assim auferir lucro. De acordo com o último relatório divulgado pela B3 em dezembro de 2021, 49% dos investidores nesse mercado no país, são estrangeiros, acompanhados das instituições financeiras e de investidores institucionais, sendo 27% e 18% respectivamente, os investidores pessoa física correspondem a 4% da participação no mercado.
 
@@ -26,7 +30,7 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 ("PerformanceAnalytics")
 ("braverock/quantstrat")
 
-### Desenvolvimento do Script de Importação dos dados USD/BRL
+### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
 
 O sistema de negociação como dito foi desenvolvido em um ambiente de programação “R” e foi baseado em “regras” e estratégias de negociação utilizando-se do cruzamento de médias móveis aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
 
@@ -143,14 +147,24 @@ A figura, representa o histórico de negociações do dólar, referente a primei
 ![image](https://user-images.githubusercontent.com/104097497/165602285-b99402b2-9f35-42de-89ca-9c37f4fb3b67.png)
 
 
-### Desenvolvimento das Regras "Estratégias" de Negociação
+### 3. Desenvolvimento das Regras "Estratégias" de Negociação
 
 As regras...
 
-### Regra "Estratégia" - Média Móvel
-
+### 3.1 Regra "Estratégia" - Média Móvel
 A Regra...
 
-### Regra "Estratégia" - Preço de Fechamento
-
+### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
+
+### 3.2 Regra "Estratégia" - Indicador RSI
+A Regra...
+
+
+### 4 Contatos (Desenvolvedores)
+
+Juliano Eduardo da Silva (Juliano Itoo)
+E-mail: jjuliano.essilva@gmail.com
+
+Victor Eduardo de Mello Valério (Victor Valério)
+E-mail: victor.dmv@unifei.edu.br
