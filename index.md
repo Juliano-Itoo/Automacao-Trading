@@ -175,11 +175,12 @@ O "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível 
 
 A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e a elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
-### 3.1.1 Etapa 1
+### 3.1.1 Etapa 1 - Configuração Inicial
 
 É necessário instalar e carregar os pacotes padrão e pacotes personalizados.
 
 ```markdown
+
 # Instalando e carregando Pacotes Necessários
 
 #Instalar pacotes necessários
@@ -205,6 +206,62 @@ library(quantstrat)
 library(foreach)
 
 ```
+Após Configurar os pacotes e necessário carregar os dados:
+
+```markdown
+
+Chamar WorkSpace Dolar - "Whorkspace com dados baixados 35000 candles - Série XTS
+
+```
+A moeda é USD para derivativos USD/BRL e o multiplicador é sempre 1 para ações:
+
+```markdown
+
+currency("USD")
+stock(symbols, currency="USD", multiplier=1)
+
+```
+
+Define-se a estratégia portfólio e nome da conta:
+
+```markdown
+
+strategy.st <- "filter"
+portfolio.st <- "filter"
+account.st <- "filter"
+
+```
+
+Remove-se quaisquer variáveis antigas:
+
+```markdown
+
+strategy.st <- "filter"
+portfolio.st <- "filter"
+account.st <- "filter"
+
+```
+
+Faz-se a inicialização de estratégia, portfólio e conta:
+
+```markdown
+
+symbols = c("DOLAR_2021_QUINZENA01_MES01")
+initEq=10^6
+
+currency("USD")
+strategy.st <- portfolio.st <- account.st <- "SMA"
+rm.strat(strategy.st)
+initAcct(account.st, portfolios=portfolio.st, 
+         initEq = initEq)
+initPortf(portfolio.st, symbols)
+initOrders(portfolio.st)
+strategy(strategy.st, store=TRUE)
+
+```
+
+### 3.1.2 Etapa 2 - Definição de Indicador
+
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
