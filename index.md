@@ -169,10 +169,42 @@ As regras "Estratégias" foram desenvolvidas utilizando-se de ferramentas espec�
 
 A Palavara "Quantmod" significa "quadro de modelagem financeira quantitativa" e este pacote do "R" possui três funções principais:  baixar dados, gerar e plotar gráficos e  Calcular indicadores técnicos.
 
-O quanstrat ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
+O "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
 
 ### 3.1 Regra "Estratégia" - Média Móvel
-A Regra...
+
+A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e a elaboração do "Script" passa pelas etapas discriminadas abaixo:
+
+### 3.1.1 Etapa 1
+
+É necessário instalar e carregar os pacotes padrão e pacotes personalizados.
+
+```markdown
+# Instalando e carregando Pacotes Necessários
+
+#Instalar pacotes necessários
+install.packages("quantmod")
+install.packages("TTR")
+install.packages("devtools")
+install.packages("xts")
+install.packages("FinancialInstrument")
+install_github("braverock/blotter")
+install.packages("PerformanceAnalytics")
+devtools :: install_github ("braverock/quantstrat", force = T)
+install.packages("foreach")
+
+#Chamar pacotes necessários
+library(quantmod)
+library(TTR)
+library(devtools)
+library(xts)
+library(blotter)
+library(FinancialInstrument)
+library(PerformanceAnalytics)
+library(quantstrat)
+library(foreach)
+
+```
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
