@@ -17,18 +17,31 @@ Após estudos bibliográficos, definição das “regras” estratégias de aná
 Abaixo estão listados os pacotes do Software "R", necessários para desenvolvimento e correto funcionamento do sistema de negociação desenvolvido:
 
 ('quantmod')
+
 ('timeSeries')
+
 ('fPortfolio')
+
 ('tidyverse')
+
 ('Hmisc')
+
 ('corrplot')
+
 ('magrittr')
+
 ("TTR")
+
 ("xts")
+
 ("FinancialInstrument")
+
 ("braverock/blotter")
+
 ("PerformanceAnalytics")
+
 ("braverock/quantstrat")
+
 ("foreach")
 
 ### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
@@ -171,7 +184,9 @@ A Regra...
 ### 4 Contatos (Desenvolvedores)
 
 Juliano Eduardo da Silva (Juliano Itoo)
+
 E-mail: jjuliano.essilva@gmail.com
 
 Victor Eduardo de Mello Valério (Victor Valério)
+
 E-mail: victor.dmv@unifei.edu.br
