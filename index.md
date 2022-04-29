@@ -325,7 +325,128 @@ add.signal(
 
 ### 3.1.4 Etapa 4 - Adição de Regras "Estratégias"
 
+Enquanto os sinais de negociação nos dizem comprar ou vender, mas não especifica os detalhes da execução.
 
+As regras de negociação especificarão os sete elementos a seguir:
+
+SigCol: Nome do Sinal
+
+SigVal: implementa quando há sinal (ou reverso)
+
+Tipo de pedido: mercado, limite de parada
+
+Lado do pedido: longo, curto
+
+Método de preço: mercado
+
+Substituir: se deve substituir outros
+
+Tipo: entrar ou sair do pedido
+
+A regra de compra especifica que, quando um sinal de compra aparecer, coloque uma ordem de mercado de compra com o tamanho da quantidade.
+
+```markdown
+
+add.rule(strategy.st, 
+         name='ruleSignal', 
+         arguments = list(sigcol="buy", 
+                          sigval=TRUE,  
+                          orderqty=1, 
+                          ordertype='market', 
+                          orderside='long', 
+                          pricemethod='market', 
+                          replace=FALSE), 
+         type='enter', 
+         path.dep=TRUE)
+
+```
+
+A regra de venda especifica que, quando um sinal de venda aparecer, coloque uma ordem de mercado de venda com o tamanho da quantidade.
+
+```markdown
+
+add.rule(strategy.st, 
+         name='ruleSignal', 
+         arguments = list(sigcol="sell", 
+                          sigval=TRUE,  
+                          orderqty='all', 
+                          ordertype='market', 
+                          orderside='long', 
+                          pricemethod='market', 
+                          replace=FALSE), 
+         type='exit', 
+         path.dep=TRUE)
+
+```
+
+### 3.1.5 Etapa 5 - Resultados e Avaliação
+
+Aplica-se a regra "estratégia" de negociação e posteriormente a atualização da carteira, conta e patrimônio.
+
+```markdown
+
+out<-try(applyStrategy(strategy.st, 
+                       portfolios=portfolio.st))
+                       
+#Avaliacao - visualizacao de negociacoes
+out<-try(applyStrategy(strategy.st, 
+                       portfolios=portfolio.st))
+         
+#Atualizacao de Contas
+updatePortf(portfolio.st)
+updateAcct(portfolio.st)
+updateEndEq(account.st)
+
+```
+Apos aplicação das estratégias de negociação é possível "plotar" os resultados obtidos:
+
+```markdown
+
+#Tracar posicoes de mercado
+for(symbol in symbols) {
+  chart.Posn(Portfolio=portfolio.st,
+             Symbol=symbol,log=TRUE)
+}
+
+```
+
+```markdown
+
+#Estatisticas de negociacao
+tstats <- tradeStats(portfolio.st)
+t(tstats) #transpose tstats
+
+```
+
+```markdown
+
+#Analise de Desempenho - Risco Retorno
+rets <- PortfReturns(Account = account.st)
+rownames(rets) <- NULL
+tab <- table.Arbitrary(rets,
+                       metrics=c(
+                         "Return.cumulative",
+                         "Return.annualized",
+                         "SharpeRatio.annualized",
+                         "CalmarRatio"),
+                       metricsNames=c(
+                         "Cumulative Return",
+                         "Annualized Return",
+                         "Annualized Sharpe Ratio",
+                         "Calmar Ratio"))
+tab
+
+#Visualizacao de desempenho
+View(tab)
+
+```
+
+```markdown
+
+#Plotagem de desempenho
+charts.PerformanceSummary(rets, colorset = bluefocus)  
+
+```
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
@@ -334,7 +455,7 @@ A Regra...
 A Regra...
 
 
-### 4 Contatos (Desenvolvedores)
+### 4 Desenvolvedores
 
 Juliano Eduardo da Silva (Juliano Itoo)
 
