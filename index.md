@@ -18,7 +18,7 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 
 ('quantmod')
 
-("Kinzel/mt5R", force = T)
+('Kinzel/mt5R')
 
 ('timeSeries')
 
@@ -34,19 +34,19 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 
 ('magrittr')
 
-("TTR")
+('TTR')
 
-("xts")
+('xts')
 
-("FinancialInstrument")
+('FinancialInstrument')
 
-("braverock/blotter")
+('braverock/blotter')
 
-("PerformanceAnalytics")
+('PerformanceAnalytics')
 
-("braverock/quantstrat")
+('braverock/quantstrat')
 
-("foreach")
+('foreach')
 
 ### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
 
