@@ -385,12 +385,34 @@ Aplica-se a regra "estratégia" de negociação e posteriormente a atualização
 
 ```markdown
 
-out<-try(applyStrategy(strategy.st, 
-                       portfolios=portfolio.st))
-                       
 #Avaliacao - visualizacao de negociacoes
 out<-try(applyStrategy(strategy.st, 
                        portfolios=portfolio.st))
+                       
+```                       
+   
+```markdown
+
+[1] "2021-01-06 13:20:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5265"
+[1] "2021-01-06 18:10:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5281.5"
+[1] "2021-01-06 21:10:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5310"
+[1] "2021-01-08 12:20:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5373.5"
+[1] "2021-01-08 15:30:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5406.5"
+[1] "2021-01-11 17:30:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5488.5"
+[1] "2021-01-11 20:10:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5504.5"
+[1] "2021-01-12 12:25:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5472.5"
+[1] "2021-01-13 15:15:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5302"
+[1] "2021-01-13 15:40:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5332"
+[1] "2021-01-13 20:45:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5311.5"
+[1] "2021-01-14 12:10:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5279.5"
+[1] "2021-01-15 12:20:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5242"
+[1] "2021-01-15 17:05:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5262.5"
+[1] "2021-01-15 17:45:00 DOLAR_2021_QUINZENA01_MES01 1 @ 5268"
+[1] "2021-01-15 21:25:00 DOLAR_2021_QUINZENA01_MES01 -1 @ 5293,5"
+
+``` 
+
+```markdown
          
 #Atualizacao de Contas
 updatePortf(portfolio.st)
@@ -410,11 +432,50 @@ for(symbol in symbols) {
 
 ```
 
+![image](https://user-images.githubusercontent.com/104097497/165992597-55b6bceb-ad86-4d1a-8981-c8f8504bdfcf.png)
+
 ```markdown
 
 #Estatisticas de negociacao
 tstats <- tradeStats(portfolio.st)
 t(tstats) #transpose tstats
+
+```
+
+```markdown
+                  DOLAR_2021_QUINZENA01_MES01  
+Portfolio          "SMA"                        
+Symbol             "DOLAR_2021_QUINZENA01_MES01"
+Num.Txns           "15"                         
+Num.Trades         "7"                          
+Net.Trading.PL     "174"                        
+Avg.Trade.PL       "21.21429"                   
+Med.Trade.PL       "20.5"                       
+Largest.Winner     "82"                         
+Largest.Loser      "-32"                        
+Gross.Profits      "212.5"                      
+Gross.Losses       "-64"                        
+Std.Dev.Trade.PL   "43.2944"                    
+Std.Err.Trade.PL   "16.36374"                   
+Percent.Positive   "71.42857"                   
+Percent.Negative   "28.57143"                   
+Profit.Factor      "3.320312"                   
+Avg.Win.Trade      "42.5"                       
+Med.Win.Trade      "30"                         
+Avg.Losing.Trade   "-32"                        
+Med.Losing.Trade   "-32"                        
+Avg.Daily.PL       "21.21429"                   
+Med.Daily.PL       "20.5"                       
+Std.Dev.Daily.PL   "43.2944"                    
+Std.Err.Daily.PL   "16.36374"                   
+Ann.Sharpe         "7.77852"                    
+Max.Drawdown       "-79"                        
+Profit.To.Max.Draw "2.202532"                   
+Avg.WinLoss.Ratio  "1.328125"                   
+Med.WinLoss.Ratio  "0.9375"                     
+Max.Equity         "189"                        
+Min.Equity         "-2"                         
+End.Equity         "174"
 
 ```
 
@@ -443,10 +504,22 @@ View(tab)
 
 ```markdown
 
+                        DOLAR_2021_QUINZENA01_MES01.DailyEqPL
+Cumulative Return                                1.740071
+Annualized Return                                4.394223
+Annualized Sharpe Ratio                          7.250135
+Calmar Ratio                                     1.830926
+
+```
+
+```markdown
+
 #Plotagem de desempenho
 charts.PerformanceSummary(rets, colorset = bluefocus)  
 
 ```
+
+![image](https://user-images.githubusercontent.com/104097497/165993734-3bed5f16-7c66-4e84-bf80-8d5b783eebde.png)
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 A Regra...
