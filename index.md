@@ -18,11 +18,15 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 
 ('quantmod')
 
+("Kinzel/mt5R", force = T)
+
 ('timeSeries')
 
 ('fPortfolio')
 
 ('tidyverse')
+
+('usethis')
 
 ('Hmisc')
 
@@ -82,26 +86,29 @@ quantmod::chartSeries(dolar, theme = "black", name = "DOL$")
 # Tratamento dos dados – Instalação de pacotes para elaboração das regras “estratégias”
 
 #Instalar pacotes necessários
-install.packages("quantmod")
+
 install.packages("TTR")
-install.packages("devtools")
 install.packages("xts")
+install.packages("quantmod")
+install.packages("usethis")
+install.packages("devtools")
 install.packages("FinancialInstrument")
-install_github("braverock/blotter")
 install.packages("PerformanceAnalytics")
-devtools :: install_github ("braverock/quantstrat", force = T)
+devtools :: install_github("braverock/blotter", force = T)
 install.packages("foreach")
+devtools :: install_github ("braverock/quantstrat", force = T)
 
 #Chamar pacotes necessários
-library(quantmod)
 library(TTR)
-library(devtools)
 library(xts)
-library(blotter)
+library(quantmod)
+library(usethis)
+library(devtools)
 library(FinancialInstrument)
 library(PerformanceAnalytics)
-library(quantstrat)
+library(blotter)
 library(foreach)
+library(quantstrat)
 
 #Chamar dados
 
@@ -184,26 +191,29 @@ A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat
 # Instalando e carregando Pacotes Necessários
 
 #Instalar pacotes necessários
-install.packages("quantmod")
+
 install.packages("TTR")
-install.packages("devtools")
 install.packages("xts")
+install.packages("quantmod")
+install.packages("usethis")
+install.packages("devtools")
 install.packages("FinancialInstrument")
-install_github("braverock/blotter")
 install.packages("PerformanceAnalytics")
-devtools :: install_github ("braverock/quantstrat", force = T)
+devtools :: install_github("braverock/blotter", force = T)
 install.packages("foreach")
+devtools :: install_github ("braverock/quantstrat", force = T)
 
 #Chamar pacotes necessários
-library(quantmod)
 library(TTR)
-library(devtools)
 library(xts)
-library(blotter)
+library(quantmod)
+library(usethis)
+library(devtools)
 library(FinancialInstrument)
 library(PerformanceAnalytics)
-library(quantstrat)
+library(blotter)
 library(foreach)
+library(quantstrat)
 
 ```
 Após Configurar os pacotes e necessário carregar os dados:
