@@ -105,7 +105,7 @@ library(foreach)
 
 #Chamar dados
 
-# *Chamar WorkSpace Dolar - "Whorkspace com dados baixados 35000 candles - Série XTS"
+# *Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
 
 #visualizando dados
 View(dolar)
