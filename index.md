@@ -210,7 +210,7 @@ Após Configurar os pacotes e necessário carregar os dados:
 
 ```markdown
 
-Chamar WorkSpace Dolar - "Whorkspace com dados baixados 35000 candles - Série XTS
+Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
 
 ```
 A moeda é USD para derivativos USD/BRL e o multiplicador é sempre 1 para ações:
