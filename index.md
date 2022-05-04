@@ -180,6 +180,12 @@ O "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível 
 
 ### 3.1 Regra "Estratégia" - Média Móvel
 
+É uma média dos preços de um determinado ativo em um determinado período de tempo. Ellis e Parbery (2005) destacou o uso de médias móveis para a geração de sinais de compra e venda como um mecanismo para identificar tendências de preços. Enquanto a média móvel de curto prazo é mais sensível às mudanças de preço, as médias móveis de longo prazo capturam tendências de médio e longo prazo. Os investidores nas bolsas de valores utilizam amplamente a análise técnica, e as médias móveis são os indicadores comumente usados porque são simples de entender e relativamente fáceis de usar.
+
+O cálculo da média móvel pode ser representado pela expressão a seguir, onde “V” são os valores dos preços de fechamento e “n” é o intervalo de tempo selecionado:
+
+MA: V1 + V2 + V3.... + Vn/n
+
 A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e a elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
 ### 3.1.1 Etapa 1 - Configuração Inicial
@@ -731,8 +737,24 @@ Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratégia":
 
 ### 3.3 Regra "Estratégia" - Indicador RSI
 
-A Regra...
+Contreras, et al. (2017), relata que o relative strength index (RSI), ou indicador RSI, ou ainda Índice de força relativa (IFR), está entre os indicadores mais utilizados na análise técnica (TA), sendo um  dos mais populares na busca de rastreabilidade de tendências. 
 
+O indicador RSI foi desenvolvido por J. Welles Wilder Jr. em 1978 e conhecido por meio do livro “Novos conceitos em Sistemas de Negóciação Técnicos” (New Concepts in Technical Trading Systems), tendo como objetivo oferecer uma forma de se medir a força ou ímpeto de um mercado.
+
+Ainda segundo Contreras, et al. (2017), o indicador é baseado no fator de resistência relativa (RS) de um determinado período que compara movimentos individuais para cima ou para baixo de preços de fechamento sucessivos. O indicador RSI possui oscilação entre 0 e 100.
+
+Contreras, et al. (2017), relata em seus estudos a utilização do indicador  sob dois aspectos: Overbought (“Sobrecompra”) / oversold “Sobrevenda” (RSIO): Usa-se a faixa RSI (Geralmente 70 e 30) para identificar os níveis de sobrecompra e sobrevenda. Os valores RSI acima do nível de sobrecompra acionam um sinal de venda e os valores abaixo do nível de sobrevenda um sinal de compra. Quando o valor RSIO cai abaixo do nível de sobrecompra, um sinal de venda é gerado. Da mesma forma, um sinal de compra é gerado quando o indicador sobe acima da linha de sobrevenda. 
+
+Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apresenta o cálculo do indicador, onde “RS” representa a média de X períodos de alta dividido pela  média de X períodos de baixa:
+RSI = 100 – 100/(1 + RS)
+
+### 3.3.1 Etapa 1 - Configuração Inicial
+
+### 3.3.2 Etapa 2 - Definição de Indicador
+
+### 3.3.3 Etapa 3: Aplicação da Estratégia
+
+### 3.3.4 Etapa 4: Resultados e Avaliação
 
 ### 4 Desenvolvedores
 
