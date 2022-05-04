@@ -216,7 +216,7 @@ library(foreach)
 library(quantstrat)
 
 ```
-Após Configurar os pacotes e necessário carregar os dados:
+Após Configurar os pacotes e necessário carregar os dados históricos de negociação:
 
 ```markdown
 
@@ -532,7 +532,110 @@ charts.PerformanceSummary(rets, colorset = bluefocus)
 ![image](https://user-images.githubusercontent.com/104097497/165993734-3bed5f16-7c66-4e84-bf80-8d5b783eebde.png)
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
-A Regra...
+
+Nesta estratégia, a regra “filtro simples” será pautada na comparação dos preços de fechamento em cada candle. A regra "estratégia" de filtro simples sugere comprar quando o preço aumenta muito em relação ao preço, por exemplo. Nessa estratégia o sinal é dado pela fórmula abaixo:
+
+Comprar:Pt/Pt−1>1+β
+
+Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde ao preço de fechamento no período t−1, isto é, imediatamente anterior e β corresponde ao sinal, ou seja, um escalar positivo β>0 e arbitrariamente definiremos na regra de negociação.
+
+Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do candle anterior e  zerar a posicao (vender) no fechamento do próximo candle.
+
+ Etapa 1: Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
+
+```markdown
+
+# Instalando e carregando Pacotes Necessários
+
+#Instalar pacotes necessários
+
+install.packages("TTR")
+install.packages("xts")
+install.packages("quantmod")
+install.packages("usethis")
+install.packages("devtools")
+install.packages("FinancialInstrument")
+install.packages("PerformanceAnalytics")
+devtools :: install_github("braverock/blotter", force = T)
+install.packages("foreach")
+devtools :: install_github ("braverock/quantstrat", force = T)
+
+#Chamar pacotes necessários
+library(TTR)
+library(xts)
+library(quantmod)
+library(usethis)
+library(devtools)
+library(FinancialInstrument)
+library(PerformanceAnalytics)
+library(blotter)
+library(foreach)
+library(quantstrat)
+
+```
+Após Configurar os pacotes e necessário carregar os dados históricos de negociação:
+
+```markdown
+
+Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
+
+```
+
+Etapa 2: Calcula-se a variação percentual do preço dividindo o preço de fechamento atual por seu próprio atraso e, em seguida, menos 1. Posteriormente gera-se o sinal de compra com base na regra do filtro:
+
+```markdown
+
+# Selecao do preco de fechamento apenas:
+
+preco_fechamento <- quantmod::Cl(DOLAR_2021)
+
+
+# Computo das variacoes diarias dos precos de fechamento:
+
+variacao_preco <- preco_fechamento/lag(preco_fechamento)
+
+
+# Definicao do parametro de compra:
+
+beta <- 1
+
+
+# Resultados dos sinais a partir das variacoes e do parametro de compra:
+
+sinal <- c(0)
+
+for (i in 2:length(preco_fechamento)){
+  
+  if (variacao_preco[i] > beta){
+    
+    sinal[i] <- 1
+    
+  } else
+    
+    sinal[i] <- 0
+}
+
+
+# Adequando as datas dos sinais:
+
+sinal <- xts::reclass(sinal, preco_fechamento)
+
+
+# Impressao no console das primeiras 5 linhas:
+
+head(sinal, n = 5)
+
+
+# Gerando o grafico para intervalo de tempo (Visualização para Quinzena de Janeiro):
+
+quantmod::chartSeries(DOLAR_2021,
+                      subset= '2021-01-01::2021-21-31',
+                      theme = quantmod::chartTheme('black',
+                                                   up.col='#70c9e7',
+                                                   dn.col='#af636c'))
+
+```
+
 
 ### 3.2 Regra "Estratégia" - Indicador RSI
 A Regra...
