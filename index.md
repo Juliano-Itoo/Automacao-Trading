@@ -539,9 +539,11 @@ Comprar:Pt/Pt−1>1+β
 
 Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde ao preço de fechamento no período t−1, isto é, imediatamente anterior e β corresponde ao sinal, ou seja, um escalar positivo β>0 e arbitrariamente definiremos na regra de negociação.
 
-Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do candle anterior e  zerar a posicao (vender) no fechamento do próximo candle.
+Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do próximo dia.
 
- Etapa 1: Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
+ Etapa 1: Configuração Inicial
+ 
+ Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
 
 ```markdown
 
@@ -581,7 +583,9 @@ Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
 
 ```
 
-Etapa 2: Calcula-se a variação percentual do preço dividindo o preço de fechamento atual por seu próprio atraso e, em seguida, menos 1. Posteriormente gera-se o sinal de compra com base na regra do filtro:
+Etapa 2: Definição de Indicador e Adição de Sinais
+
+Calcula-se a variação percentual do preço dividindo o preço de fechamento atual por seu próprio atraso e, em seguida, menos 1. Posteriormente gera-se o sinal de compra com base na regra do filtro:
 
 ```markdown
 
@@ -629,12 +633,66 @@ head(sinal, n = 5)
 # Gerando o grafico para intervalo de tempo (Visualização para Quinzena de Janeiro):
 
 quantmod::chartSeries(DOLAR_2021,
-                      subset= '2021-01-01::2021-21-31',
+                      subset= '2021-01-01::2021-01-15',
                       theme = quantmod::chartTheme('black',
                                                    up.col='#70c9e7',
                                                    dn.col='#af636c'))
 
 ```
+
+![image](https://user-images.githubusercontent.com/104097497/166741836-5a7eaf58-8cd4-44aa-83ea-0e03fdabf9a4.png)
+
+É possivel plotar os sinais de compra no gráfico:
+
+![image](https://user-images.githubusercontent.com/104097497/166742663-67323759-0ed3-4ac1-acf4-7a48b49fd5b3.png)
+
+Etapa 3: Aplicação da Estratégia
+
+A estratégia é aplicada utilizando-se dos comandos abaixo:
+
+```markdown
+
+# Deve-se comprar com base no sinal anterior:
+
+ordem <- lag(sinal,1) 
+
+
+# Alterando o nome da coluna:
+
+names(ordem) <- 'filtro'
+
+
+# Impressao no console das primeiras 5 linhas:
+
+head(ordem, n = 5)
+
+# Calculo do retorno diario obtido nos dias em que a ordem deveria ser
+# executada de acordo com a estrategia tratada:
+
+retorno_diario <- quantmod::dailyReturn(DOLAR_2021) * ordem
+
+
+# Impressao no console das primeiras 5 linhas:
+
+head(retorno_diario, n = 5)
+
+```
+
+Abaixo, plotagem das cinco primeiras linhas do cálculo de retorno:
+
+```markdown
+
+                    daily.returns
+2021-01-04 21:25:00   0.032019465
+2021-01-05 21:25:00  -0.001697473
+2021-01-06 21:25:00   0.000000000
+2021-01-07 21:25:00   0.017570234
+2021-01-08 21:25:00   0.001754386
+
+```
+
+Etapa 4: Resultados e Avaliação
+
 
 
 ### 3.2 Regra "Estratégia" - Indicador RSI
