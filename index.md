@@ -539,13 +539,13 @@ charts.PerformanceSummary(rets, colorset = bluefocus)
 
 ### 3.2 Regra "Estratégia" - Preço de Fechamento
 
-Nesta estratégia, a regra “filtro simples” será pautada na comparação dos preços de fechamento em cada candle. A regra "estratégia" de filtro simples sugere comprar quando o preço aumenta muito em relação ao preço, por exemplo. Nessa estratégia o sinal é dado pela fórmula abaixo:
+Nesta estratégia, a regra “filtro simples” será pautada na comparação dos preços de fechamento em cada dia. A regra "estratégia" de filtro simples sugere comprar quando o preço aumenta muito em relação ao preço, por exemplo. Nessa estratégia o sinal é dado pela fórmula abaixo:
 
 Comprar:Pt/Pt−1>1+β
 
 Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde ao preço de fechamento no período t−1, isto é, imediatamente anterior e β corresponde ao sinal, ou seja, um escalar positivo β>0 e arbitrariamente definiremos na regra de negociação.
 
-Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do próximo dia.
+Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do dia.
 
  Etapa 1: Configuração Inicial
  
@@ -746,15 +746,131 @@ Ainda segundo Contreras, et al. (2017), o indicador é baseado no fator de resis
 Contreras, et al. (2017), relata em seus estudos a utilização do indicador  sob dois aspectos: Overbought (“Sobrecompra”) / oversold “Sobrevenda” (RSIO): Usa-se a faixa RSI (Geralmente 70 e 30) para identificar os níveis de sobrecompra e sobrevenda. Os valores RSI acima do nível de sobrecompra acionam um sinal de venda e os valores abaixo do nível de sobrevenda um sinal de compra. Quando o valor RSIO cai abaixo do nível de sobrecompra, um sinal de venda é gerado. Da mesma forma, um sinal de compra é gerado quando o indicador sobe acima da linha de sobrevenda. 
 
 Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apresenta o cálculo do indicador, onde “RS” representa a média de X períodos de alta dividido pela  média de X períodos de baixa:
-RSI = 100 – 100/(1 + RS)
+
+RSI = 100 – 100/(1 + RS).
+
+A regra "estratégia" com base no RSI, foi considerada com operacional day trading e RSI de 12 candles. A estratégia consiste em Compar 01 contrato/mini-contrato no comparativo RSI<30 e Zerar posicao (vender) no fechamento do dia. Não haverá operação de RSI>30.
 
 Etapa 1 - Configuração Inicial
 
-Etapa 2 - Definição de Indicador
+Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
+
+```markdown
+
+# Instalando e carregando Pacotes Necessários
+
+#Instalar pacotes necessários
+
+install.packages("TTR")
+install.packages("xts")
+install.packages("quantmod")
+install.packages("usethis")
+install.packages("devtools")
+install.packages("FinancialInstrument")
+install.packages("PerformanceAnalytics")
+devtools :: install_github("braverock/blotter", force = T)
+install.packages("foreach")
+devtools :: install_github ("braverock/quantstrat", force = T)
+
+#Chamar pacotes necessários
+library(TTR)
+library(xts)
+library(quantmod)
+library(usethis)
+library(devtools)
+library(FinancialInstrument)
+library(PerformanceAnalytics)
+library(blotter)
+library(foreach)
+library(quantstrat)
+
+```
+Após Configurar os pacotes e necessário carregar os dados históricos de negociação:
+
+```markdown
+
+Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
+
+```
+
+Etapa 2 - Definição de Indicador e adição de sinais
+
+```markdown
+
+# Configurando e adicionando indicador
+
+day <-12
+price <- Cl(DOLAR_2021)
+signal <- c()                    #Vetor de Inicializacao
+rsi <- RSI(price, candle)     #rsi is the lag of RSI
+signal [1:day+1] <- 0          
+
+
+# Configurando sinal de operacao
+
+for (i in (day+1): length(price)){
+  if (rsi[i] < 30){             #buy if rsi < 30
+    signal[i] <- 1
+  }else {                       #no trade all if rsi > 30
+    signal[i] <- 0
+  }
+}
+signal<-reclass(signal,Cl(DOLAR_2021))
+trade2 <- Lag(signal)
+
+```
 
 Etapa 3: Aplicação da Estratégia
 
+A estratégia é aplicada utilizando-se dos comandos abaixo:
+
+```markdown
+
+# Construcao da variavel
+
+ret <- dailyReturn(DOLAR_2021)*trade2
+names(ret) <- 'RSI'
+
+```
+
 Etapa 4: Resultados e Avaliação
+
+Os resultados da aplicação da estratégia são plotados utilizando-se dos comandos abaixo:
+
+```markdown
+
+# Plotagem do retorno acumulado
+
+retall <- cbind(ret)
+charts.PerformanceSummary(retall, 
+                          main="RSI")
+
+#Analise de Desempenho
+
+tab <- table.Arbitrary(ret,
+                       metrics=c(
+                         "Return.cumulative",
+                         "Return.annualized",
+                         "SharpeRatio.annualized",
+                         "CalmarRatio"),
+                       metricsNames=c(
+                         "Cumulative Return",
+                         "Annualized Return",
+                         "Annualized Sharpe Ratio",
+                         "Calmar Ratio"))
+
+
+#Visualizacao de desempenho
+View(tab)
+
+#Plotagem de desempenho
+charts.PerformanceSummary(retorno_diario, colorset = bluefocus)
+
+```
+Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratégia":
+
+![image](https://user-images.githubusercontent.com/104097497/166813500-64c56571-e4fa-495e-8358-dde8a7d6208c.png)
+
 
 ### 4 Desenvolvedores
 
