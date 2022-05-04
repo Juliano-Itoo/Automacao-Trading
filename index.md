@@ -541,7 +541,7 @@ Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde 
 
 Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do próximo dia.
 
- Etapa 1: Configuração Inicial
+ ### 3.2.1 Etapa 1: Configuração Inicial
  
  Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
 
@@ -583,7 +583,7 @@ Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
 
 ```
 
-Etapa 2: Definição de Indicador e Adição de Sinais
+### 3.2.2 Etapa 2: Definição de Indicador e Adição de Sinais
 
 Calcula-se a variação percentual do preço dividindo o preço de fechamento atual por seu próprio atraso e, em seguida, menos 1. Posteriormente gera-se o sinal de compra com base na regra do filtro:
 
@@ -646,7 +646,7 @@ quantmod::chartSeries(DOLAR_2021,
 
 ![image](https://user-images.githubusercontent.com/104097497/166742663-67323759-0ed3-4ac1-acf4-7a48b49fd5b3.png)
 
-Etapa 3: Aplicação da Estratégia
+### 3.2.3 Etapa 3: Aplicação da Estratégia
 
 A estratégia é aplicada utilizando-se dos comandos abaixo:
 
@@ -691,11 +691,46 @@ Abaixo, plotagem das cinco primeiras linhas do cálculo de retorno:
 
 ```
 
-Etapa 4: Resultados e Avaliação
+### 3.2.4 Etapa 4: Resultados e Avaliação
+
+Os resultados da aplicação da estratégia são plotados utilizando-se dos comandos abaixo:
+
+```markdown
+
+                # Avaliando o resutaldo no periodo tratado (retorno acumulado):
+
+PerformanceAnalytics::charts.PerformanceSummary(retorno_diario)
+
+#Analise de Desempenho
+
+tab <- table.Arbitrary(retorno_diario,
+                       metrics=c(
+                         "Return.cumulative",
+                         "Return.annualized",
+                         "SharpeRatio.annualized",
+                         "CalmarRatio"),
+                       metricsNames=c(
+                         "Cumulative Return",
+                         "Annualized Return",
+                         "Annualized Sharpe Ratio",
+                         "Calmar Ratio"))
 
 
+#Visualizacao de desempenho
+View(tab)
 
-### 3.2 Regra "Estratégia" - Indicador RSI
+#Plotagem de desempenho
+charts.PerformanceSummary(retorno_diario, colorset = bluefocus)
+
+```
+
+Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratatégia":
+
+![image](https://user-images.githubusercontent.com/104097497/166749115-6b56ae7d-2541-4925-879b-00473bda51ec.png)
+
+
+### 3.3 Regra "Estratégia" - Indicador RSI
+
 A Regra...
 
 
