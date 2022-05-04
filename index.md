@@ -188,7 +188,7 @@ MA: V1 + V2 + V3.... + Vn/n
 
 A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e a elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
-### 3.1.1 Etapa 1 - Configuração Inicial
+Etapa 1 - Configuração Inicial
 
 É necessário instalar e carregar os pacotes padrão e pacotes personalizados.
 
@@ -276,7 +276,7 @@ strategy(strategy.st, store=TRUE)
 
 ```
 
-### 3.1.2 Etapa 2 - Definição de Indicador
+Etapa 2 - Definição de Indicador
 
 O indicador é apenas uma função baseada no preço. Agora adicio-se dois indicadores: SMA12 e SMA72. Para a função SMA, precisamos informar o vetor de preços e o número de períodos:
 
@@ -294,7 +294,7 @@ add.indicator(
 
 ```
 
-### 3.1.3 Etapa 3 - Adição de Sinais
+Etapa 3 - Adição de Sinais
 
 Os sinais de negociação são gerados a partir dos indicadores de negociação. Por exemplo, uma regra de negociação simples determina que há um sinal de compra quando o filtro excede determinado limite.
 No quantstrat , existem três maneiras de usar um sinal. É referido como nome :
@@ -339,7 +339,7 @@ add.signal(
 
 ```
 
-### 3.1.4 Etapa 4 - Adição de Regras "Estratégias"
+Etapa 4 - Adição de Regras "Estratégias"
 
 Enquanto os sinais de negociação nos dizem comprar ou vender, mas não especifica os detalhes da execução.
 
@@ -395,7 +395,7 @@ add.rule(strategy.st,
 
 ```
 
-### 3.1.5 Etapa 5 - Resultados e Avaliação
+Etapa 5 - Resultados e Avaliação
 
 Aplica-se a regra "estratégia" de negociação e posteriormente a atualização da carteira, conta e patrimônio.
 
@@ -547,7 +547,7 @@ Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde 
 
 Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do próximo dia.
 
- ### 3.2.1 Etapa 1: Configuração Inicial
+ Etapa 1: Configuração Inicial
  
  Primeiramente faz-se necessário, instalar e "chamar" os pacotes necessários:
 
@@ -589,7 +589,7 @@ Chamar WorkSpace Dolar - "Dolar - Workspace 2021" - Arquivo R.Data
 
 ```
 
-### 3.2.2 Etapa 2: Definição de Indicador e Adição de Sinais
+Etapa 2: Definição de Indicador e Adição de Sinais
 
 Calcula-se a variação percentual do preço dividindo o preço de fechamento atual por seu próprio atraso e, em seguida, menos 1. Posteriormente gera-se o sinal de compra com base na regra do filtro:
 
@@ -652,7 +652,7 @@ quantmod::chartSeries(DOLAR_2021,
 
 ![image](https://user-images.githubusercontent.com/104097497/166742663-67323759-0ed3-4ac1-acf4-7a48b49fd5b3.png)
 
-### 3.2.3 Etapa 3: Aplicação da Estratégia
+Etapa 3: Aplicação da Estratégia
 
 A estratégia é aplicada utilizando-se dos comandos abaixo:
 
@@ -697,7 +697,7 @@ Abaixo, plotagem das cinco primeiras linhas do cálculo de retorno:
 
 ```
 
-### 3.2.4 Etapa 4: Resultados e Avaliação
+Etapa 4: Resultados e Avaliação
 
 Os resultados da aplicação da estratégia são plotados utilizando-se dos comandos abaixo:
 
@@ -748,13 +748,13 @@ Contreras, et al. (2017), relata em seus estudos a utilização do indicador  so
 Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apresenta o cálculo do indicador, onde “RS” representa a média de X períodos de alta dividido pela  média de X períodos de baixa:
 RSI = 100 – 100/(1 + RS)
 
-### 3.3.1 Etapa 1 - Configuração Inicial
+Etapa 1 - Configuração Inicial
 
-### 3.3.2 Etapa 2 - Definição de Indicador
+Etapa 2 - Definição de Indicador
 
-### 3.3.3 Etapa 3: Aplicação da Estratégia
+Etapa 3: Aplicação da Estratégia
 
-### 3.3.4 Etapa 4: Resultados e Avaliação
+Etapa 4: Resultados e Avaliação
 
 ### 4 Desenvolvedores
 
