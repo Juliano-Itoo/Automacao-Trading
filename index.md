@@ -724,7 +724,7 @@ charts.PerformanceSummary(retorno_diario, colorset = bluefocus)
 
 ```
 
-Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratatégia":
+Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratégia":
 
 ![image](https://user-images.githubusercontent.com/104097497/166749115-6b56ae7d-2541-4925-879b-00473bda51ec.png)
 
