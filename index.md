@@ -749,7 +749,7 @@ Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apr
 
 RSI = 100 – 100/(1 + RS).
 
-A regra "estratégia" com base no RSI, foi considerada com operacional day trading e RSI de 12 candles. A estratégia consiste em Compar 01 contrato/mini-contrato no comparativo RSI<30 e Zerar posicao (vender) no fechamento do dia. Não haverá operação de RSI>30.
+A regra "estratégia" com base no RSI, foi considerada com operacional day trading e RSI de 12 dias. A estratégia consiste em Compar 01 contrato/mini-contrato no comparativo RSI<30 e Zerar posição (vender) no fechamento do dia. Não haverá operação de RSI>30.
 
 Etapa 1 - Configuração Inicial
 
