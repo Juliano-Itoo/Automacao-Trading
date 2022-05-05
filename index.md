@@ -278,7 +278,7 @@ strategy(strategy.st, store=TRUE)
 
 Etapa 2 - Definição de Indicador
 
-O indicador é apenas uma função baseada no preço. Agora adicio-se dois indicadores: SMA12 e SMA72. Para a função SMA, precisamos informar o vetor de preços e o número de períodos:
+O indicador é apenas uma função baseada no preço. Agora se adiciona dois indicadores: SMA12 e SMA72. Para a função SMA, precisamos informar o vetor de preços e o número de períodos:
 
 ```markdown
 
@@ -297,7 +297,7 @@ add.indicator(
 Etapa 3 - Adição de Sinais
 
 Os sinais de negociação são gerados a partir dos indicadores de negociação. Por exemplo, uma regra de negociação simples determina que há um sinal de compra quando o filtro excede determinado limite.
-No quantstrat , existem três maneiras de usar um sinal. É referido como nome :
+No quantstrat, existem três maneiras de usar um sinal. É referido como nome :
 
 sigThreshold: mais ou menos que um valor fixo
 
@@ -355,7 +355,7 @@ Lado do pedido: longo, curto
 
 Método de preço: mercado
 
-Substituir: se deve substituir outros
+Substituir: Deve-se substituir outros
 
 Tipo: entrar ou sair do pedido
 
