@@ -186,7 +186,7 @@ O cálculo da média móvel pode ser representado pela expressão a seguir, onde
 
 MA: V1 + V2 + V3.... + Vn/n
 
-A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e a elaboração do "Script" passa pelas etapas discriminadas abaixo:
+A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e consiste em comprar 1 contrato/minicontrato no cruzamento de 12 >26 e zerar posicão (vender) no cruzamento de 12 <26. A elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
 Etapa 1 - Configuração Inicial
 
