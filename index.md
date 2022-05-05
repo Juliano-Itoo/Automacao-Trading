@@ -319,7 +319,7 @@ eq = igual a
 
 O sinal de compra aparece quando SMA12 é maior que SMA72. Os sinais de venda aparecem quando SMA12 é menor que SMA72.
 
-Aqui, vamos fazer o cruzamento de sinais para que definamos name como sigCrossover. Vamos cruzar dois sinais: sma12 e sma72. Então a relação é maior do que para comprar e menor do que para menos. Chamamos o primeiro de sinal de compra e o último de sinal de venda:
+Aqui, vamos fazer o cruzamento de sinais para que definamos o nome como sigCrossover. Vamos cruzar dois sinais: sma12 e sma72. Então a relação é maior do que para comprar e menor do que para menos. Chamamos o primeiro de sinal de compra e o último de sinal de venda:
 
 ```markdown
 
@@ -545,7 +545,7 @@ Comprar:Pt/Pt−1>1+β
 
 Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde ao preço de fechamento no período t−1, isto é, imediatamente anterior e β corresponde ao sinal, ou seja, um escalar positivo β>0 e arbitrariamente definiremos na regra de negociação.
 
-Nesse contexto a reggra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do dia.
+Nesse contexto a regra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posicao (vender) no fechamento do dia.
 
  Etapa 1: Configuração Inicial
  
