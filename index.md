@@ -1,6 +1,6 @@
 ##  1. Automatização de Negociação -  Contratos Futuros - USD/BRL
 
-O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de regras “estratégias” de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
+O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de estratégias de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
 
 "R" é uma linguagem de computador de alto nível projetada para estatísticas e gráficos. Uma característica principal é a linguagem de programa vetorial como o Matlab. Foi inicialmente criado por Ross Ihaka e Robert Gentleman (Departamento de Estatística da Universidade de Auckland, Nova Zelândia, e daí o nome). Atualmente, é um software de código aberto gratuito mantido por vários contribuidores.
 
@@ -12,7 +12,7 @@ Ainda segundo a B3, o Contrato Futuro de Dólar dos Estados Unidos da América p
 
 Segundo a CVM (Comissão de Valores Imobiliários), no memorando 25/2020, o crescimento do número de investidores pessoa física no mercado de contrato futuro de taxa de câmbio de reais por dólar comercial, vem acompanhado o crescimento como um todo, segundo o memorando, em janeiro de 2018, registrava-se o número de 22 mil investidores, esse número cresceu para 45 mil em julho de 2019 e para 91 mil em março de 2020.
 
-Após estudos bibliográficos, definição das “regras” estratégias de análise técnica a serem utilizadas como objeto de estudo e elaboração da metodologia a ser aplicada, foram desenvolvidos estudos e “scripts” no Software de programação “R”, de modo a importar os dados de negociação, criar e automatizar o sistema de negociação e por fim avaliar e mensurar risco-retorno e rendimento das “regras” estratégias criadas, estabelecendo-se como período de avaliação o ano de 2021. 
+Após estudos bibliográficos, definição das estratégias de análise técnica a serem utilizadas como objeto de estudo e elaboração da metodologia a ser aplicada, foram desenvolvidos estudos e “scripts” no Software de programação “R”, de modo a importar os dados de negociação, criar e automatizar o sistema de negociação e por fim avaliar e mensurar risco-retorno e rendimento das estratégias criadas, estabelecendo-se como período de avaliação o ano de 2021. 
 
 Abaixo estão listados os pacotes do Software "R", necessários para desenvolvimento e correto funcionamento do sistema de negociação desenvolvido:
 
@@ -50,7 +50,7 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 
 ### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
 
-O sistema de negociação como dito foi desenvolvido em um ambiente de programação “R” e foi baseado em “regras” e estratégias de negociação utilizando-se do cruzamento de médias móveis aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
+O sistema de negociação como dito foi desenvolvido em um ambiente de programação “R” e foi baseado em estratégias de negociação utilizando-se do cruzamento de médias móveis aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
 
 Realizou-se a adaptação do pacote “R”, depositado no site Github.com denominado “mt5.R”. O pacote em questão fornece uma estrutura aos usuários do Metatrader5 na obtenção de dados para análise e desenvolvimento de sistemas automatizados de negociação, além de ferramentas direcionadas ao desenvolvimento de Machine Learning através de integração com conexão de “soquete”. A utilização de tal pacote possibilitou a comunicação entre “R”, B3 e a plataforma de negociação (Metatrader5).
 
@@ -83,7 +83,7 @@ dolar <- timeSeries::as.timeSeries(na.omit(dolar))
 # Chamando todos os dados
 quantmod::chartSeries(dolar, theme = "black", name = "DOL$")
 
-# Tratamento dos dados – Instalação de pacotes para elaboração das regras “estratégias”
+# Tratamento dos dados – Instalação de pacotes para elaboração das estratégias
 
 #Instalar pacotes necessários
 
@@ -170,15 +170,15 @@ A figura, representa o histórico de negociações do dólar, referente a primei
 ![image](https://user-images.githubusercontent.com/104097497/165602285-b99402b2-9f35-42de-89ca-9c37f4fb3b67.png)
 
 
-### 3. Desenvolvimento das Regras "Estratégias" de Negociação
+### 3. Desenvolvimento das Estratégias de Negociação
 
-As regras "Estratégias" foram desenvolvidas utilizando-se de ferramentas específicas dos pacotes ('quantmod') e ("braverock/quantstrat"), os outros pacotes são necessários para auxílio e suporte na elaboração dos resultados e plotagem dos dados de risco/retorno.
+As Estratégias foram desenvolvidas utilizando-se de ferramentas específicas dos pacotes ('quantmod') e ("braverock/quantstrat"), os outros pacotes são necessários para auxílio e suporte na elaboração dos resultados e plotagem dos dados de risco/retorno.
 
 A Palavara "Quantmod" significa "quadro de modelagem financeira quantitativa" e este pacote do "R" possui três funções principais:  baixar dados, gerar e plotar gráficos e  Calcular indicadores técnicos.
 
 O "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
 
-### 3.1 Regra "Estratégia" - Média Móvel
+### 3.1 Estratégia - Média Móvel
 
 É uma média dos preços de um determinado ativo em um determinado período de tempo. Ellis e Parbery (2005) destacou o uso de médias móveis para a geração de sinais de compra e venda como um mecanismo para identificar tendências de preços. Enquanto a média móvel de curto prazo é mais sensível às mudanças de preço, as médias móveis de longo prazo capturam tendências de médio e longo prazo. Os investidores nas bolsas de valores utilizam amplamente a análise técnica, e as médias móveis são os indicadores comumente usados porque são simples de entender e relativamente fáceis de usar.
 
@@ -186,7 +186,7 @@ O cálculo da média móvel pode ser representado pela expressão a seguir, onde
 
 MA: V1 + V2 + V3.... + Vn/n
 
-A Regra "Estratégia" baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e consiste em comprar 1 contrato/minicontrato no cruzamento de 12 >26 e zerar posicão (vender) no cruzamento de 12 <26. A elaboração do "Script" passa pelas etapas discriminadas abaixo:
+A Estratégia baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e consiste em comprar 1 contrato/minicontrato no cruzamento de 12 >26 e zerar posicão (vender) no cruzamento de 12 <26. A elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
 Etapa 1 - Configuração Inicial
 
@@ -339,7 +339,7 @@ add.signal(
 
 ```
 
-Etapa 4 - Adição de Regras "Estratégias"
+Etapa 4 - Adição de Estratégias
 
 Enquanto os sinais de negociação nos dizem comprar ou vender, mas não especifica os detalhes da execução.
 
@@ -359,7 +359,7 @@ Substituir: Deve-se substituir outros
 
 Tipo: entrar ou sair do pedido
 
-A regra de compra especifica que, quando um sinal de compra aparecer, coloque uma ordem de mercado de compra com o tamanho da quantidade.
+A estratégia de compra especifica que, quando um sinal de compra aparecer, coloque uma ordem de mercado de compra com o tamanho da quantidade.
 
 ```markdown
 
@@ -377,7 +377,7 @@ add.rule(strategy.st,
 
 ```
 
-A regra de venda especifica que, quando um sinal de venda aparecer, coloque uma ordem de mercado de venda com o tamanho da quantidade.
+A estratégia de venda especifica que, quando um sinal de venda aparecer, coloque uma ordem de mercado de venda com o tamanho da quantidade.
 
 ```markdown
 
@@ -397,7 +397,7 @@ add.rule(strategy.st,
 
 Etapa 5 - Resultados e Avaliação
 
-Aplica-se a regra "estratégia" de negociação e posteriormente a atualização da carteira, conta e patrimônio.
+Aplica-se a estratégia de negociação e posteriormente a atualização da carteira, conta e patrimônio.
 
 ```markdown
 
@@ -537,15 +537,15 @@ charts.PerformanceSummary(rets, colorset = bluefocus)
 
 ![image](https://user-images.githubusercontent.com/104097497/165993734-3bed5f16-7c66-4e84-bf80-8d5b783eebde.png)
 
-### 3.2 Regra "Estratégia" - Preço de Fechamento
+### 3.2 Estratégia - Preço de Fechamento
 
-Nesta estratégia, a regra “filtro simples” será pautada na comparação dos preços de fechamento em cada dia. A regra "estratégia" de filtro simples sugere comprar quando o preço aumenta muito em relação ao preço, por exemplo. Nessa estratégia o sinal é dado pela fórmula abaixo:
+Nesta estratégia, a regra “filtro simples” será pautada na comparação dos preços de fechamento em cada dia. A estratégia de filtro simples sugere comprar quando o preço aumenta muito em relação ao preço, por exemplo. Nessa estratégia o sinal é dado pela fórmula abaixo:
 
 Comprar:Pt/Pt−1>1+β
 
 Em que Pt corresponde ao preço de fechamento no período t, Pt−1 corresponde ao preço de fechamento no período t−1, isto é, imediatamente anterior e β corresponde ao sinal, ou seja, um escalar positivo β>0 e arbitrariamente definiremos na regra de negociação.
 
-Nesse contexto a regra "estratégia", neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posição (vender) no fechamento do dia.
+Nesse contexto a estratégia, neste exemplo consiste em comprar 01 contrato/mini-contrato quando o preço de abertura for maior que o fechamento do dia anterior e  zerar a posição (vender) no fechamento do dia.
 
  Etapa 1: Configuração Inicial
  
@@ -730,12 +730,12 @@ charts.PerformanceSummary(retorno_diario, colorset = bluefocus)
 
 ```
 
-Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratégia":
+Abaixo, plotagem do retorno acumulado utilizando-se da estratégia:
 
 ![image](https://user-images.githubusercontent.com/104097497/166749115-6b56ae7d-2541-4925-879b-00473bda51ec.png)
 
 
-### 3.3 Regra "Estratégia" - Indicador RSI
+### 3.3 Estratégia - Indicador RSI
 
 Contreras, et al. (2017), relata que o relative strength index (RSI), ou indicador RSI, ou ainda Índice de força relativa (IFR), está entre os indicadores mais utilizados na análise técnica (TA), sendo um  dos mais populares na busca de rastreabilidade de tendências. 
 
@@ -867,7 +867,7 @@ View(tab)
 charts.PerformanceSummary(retorno_diario, colorset = bluefocus)
 
 ```
-Abaixo, plotagem do retorno acumulado utilizando-se da regra "estratégia":
+Abaixo, plotagem do retorno acumulado utilizando-se da estratégia:
 
 ![image](https://user-images.githubusercontent.com/104097497/166813500-64c56571-e4fa-495e-8358-dde8a7d6208c.png)
 
