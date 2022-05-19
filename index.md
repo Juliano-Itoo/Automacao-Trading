@@ -1,6 +1,6 @@
 ##  1. Automatização de Estratégias de Negociação -  Contratos Futuros - USD/BRL
 
-O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de estratégias de análise técnica (TA) aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
+O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de estratégias elaobradas a paritr de regras de análise técnica (TA), com base em indicadores, aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
 
 "R" é uma linguagem de computador de alto nível projetada para estatísticas e gráficos. Uma característica principal é a linguagem de programa vetorial como o Matlab. Foi inicialmente criado por Ross Ihaka e Robert Gentleman (Departamento de Estatística da Universidade de Auckland, Nova Zelândia, e daí o nome). Atualmente, é um software de código aberto gratuito mantido por vários contribuidores.
 
@@ -12,7 +12,7 @@ Ainda segundo a B3, o Contrato Futuro de Dólar dos Estados Unidos da América p
 
 Segundo a CVM (Comissão de Valores Imobiliários), no memorando 25/2020, o crescimento do número de investidores pessoa física no mercado de contrato futuro de taxa de câmbio de reais por dólar comercial, vem acompanhado o crescimento como um todo, segundo o memorando, em janeiro de 2018, registrava-se o número de 22 mil investidores, esse número cresceu para 45 mil em julho de 2019 e para 91 mil em março de 2020.
 
-Após estudos bibliográficos, definição das estratégias de análise técnica a serem utilizadas como objeto de estudo e elaboração da metodologia a ser aplicada, foram desenvolvidos estudos e “scripts” no Software de programação “R”, de modo a importar os dados de negociação, criar e automatizar o sistema de negociação e por fim avaliar e mensurar risco-retorno e rendimento das estratégias criadas, estabelecendo-se como período de avaliação o ano de 2021. 
+Após estudos bibliográficos, definição das regras de análise técnica, baseadas em indicadores a serem utilizadas como objeto de estudo e elaboração da metodologia a ser aplicada, foram desenvolvidos estudos e “scripts” no Software de programação “R”, de modo a importar os dados de negociação, criar e automatizar o sistema de negociação e por fim avaliar e mensurar risco-retorno e rendimento das estratégias criadas, estabelecendo-se como período de avaliação o ano de 2021. 
 
 Abaixo estão listados os pacotes do Software "R", necessários para desenvolvimento e correto funcionamento do sistema de negociação desenvolvido:
 
@@ -50,7 +50,7 @@ Abaixo estão listados os pacotes do Software "R", necessários para desenvolvim
 
 ### 2. Desenvolvimento do Script de Importação dos dados USD/BRL
 
-O sistema de negociação como dito foi desenvolvido em um ambiente de programação “R” e foi baseado em estratégias de negociação utilizando-se do cruzamento de médias móveis aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
+O sistema de negociação como dito foi desenvolvido em um ambiente de programação “R” e foi baseado em regras de negociação utilizando-se dos indicadores, média móvel, preço de fechamento e RSI, aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial.
 
 Realizou-se a adaptação do pacote “R”, depositado no site Github.com denominado “mt5.R”. O pacote em questão fornece uma estrutura aos usuários do Metatrader5 na obtenção de dados para análise e desenvolvimento de sistemas automatizados de negociação, além de ferramentas direcionadas ao desenvolvimento de Machine Learning através de integração com conexão de “soquete”. A utilização de tal pacote possibilitou a comunicação entre “R”, B3 e a plataforma de negociação (Metatrader5).
 
@@ -58,7 +58,7 @@ Para utilização da ferramenta faz-se ainda necessário que o usuário tenha um
 
 https://kinzel.github.io/mt5R/index.html
 
-Após instalação e parametrização do pacote desenvolveu-se o “Script” abaix, que permitiu a importação, tratamento dos dados históricos de negociação do contrato futuro de taxa de câmbio de reais por dólar comercial referente ao ano de 2021, bem como o cálculo e desenvolvimento dos indicadores a serem utilizados nas regras “estratégias” elaboradas para desenvolvimento do estudo:
+Após instalação e parametrização do pacote desenvolveu-se o “Script” abaixo, que permitiu a importação, tratamento dos dados históricos de negociação do contrato futuro de taxa de câmbio de reais por dólar comercial referente ao ano de 2021, bem como o cálculo e desenvolvimento das regras com base nos indicadores a serem utilizados nas estratégias elaboradas para desenvolvimento do estudo:
 
 ```markdown
 # Importação de dados
@@ -339,7 +339,7 @@ add.signal(
 
 ```
 
-Etapa 4 - Adição de Estratégias
+Etapa 4 - Adição de regras
 
 Enquanto os sinais de negociação nos dizem comprar ou vender, mas não especifica os detalhes da execução.
 
@@ -359,7 +359,7 @@ Substituir: Deve-se substituir outros
 
 Tipo: entrar ou sair do pedido
 
-A estratégia de compra especifica que, quando um sinal de compra aparecer, coloque uma ordem de mercado de compra com o tamanho da quantidade.
+A regra de compra especifica que, quando um sinal de compra aparecer, coloque uma ordem de mercado de compra com o tamanho da quantidade.
 
 ```markdown
 
@@ -377,7 +377,7 @@ add.rule(strategy.st,
 
 ```
 
-A estratégia de venda especifica que, quando um sinal de venda aparecer, coloque uma ordem de mercado de venda com o tamanho da quantidade.
+A regra de venda especifica que, quando um sinal de venda aparecer, coloque uma ordem de mercado de venda com o tamanho da quantidade.
 
 ```markdown
 
