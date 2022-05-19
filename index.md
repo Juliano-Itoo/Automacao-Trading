@@ -1,6 +1,6 @@
 ##  1. Automatização de Estratégias de Negociação - Contratos Futuros - USD/BRL
 
-O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de estratégias elaobradas a paritr de regras de análise técnica (TA), com base em indicadores, aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
+O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o objetivo de avaliar o desempenho de estratégias elaboradas a paritr de regras de análise técnica (TA), com base em indicadores, aplicadas ao contrato futuro de taxa de câmbio de reais por dólar comercial, utilizando-se dos Softwares de programação "R" e "RStudio".
 
 "R" é uma linguagem de computador de alto nível projetada para estatísticas e gráficos. Uma característica principal é a linguagem de programa vetorial como o Matlab. Foi inicialmente criado por Ross Ihaka e Robert Gentleman (Departamento de Estatística da Universidade de Auckland, Nova Zelândia, e daí o nome). Atualmente, é um software de código aberto gratuito mantido por vários contribuidores.
 
