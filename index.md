@@ -4,9 +4,9 @@ O Sistema de Negociação apresentado nesta apostila foi desenvolvido com o obje
 
 "R" é uma linguagem de computador de alto nível projetada para estatísticas e gráficos. Uma característica principal é a linguagem de programa vetorial como o Matlab. Foi inicialmente criado por Ross Ihaka e Robert Gentleman (Departamento de Estatística da Universidade de Auckland, Nova Zelândia, e daí o nome). Atualmente, é um software de código aberto gratuito mantido por vários contribuidores.
 
-Comparado com alternativas, SAS, Matlab ou Stata, R é totalmente gratuito. Outra vantagem é que é open source. Isso significa que não há caixa preta para tudo que você usa. Você sabe o que está fazendo. Também é livremente dispensável para que você possa fazer o que quiser. RStudio é um editor de desenvolvimento integrado (IDE) para R. É mais fácil escrever código usando o editor.
+Comparado com alternativas, SAS, Matlab ou Stata, R é totalmente gratuito. Outra vantagem é que é open source. Isso significa que não há caixa preta para tudo que você usa. Você sabe o que está fazendo. Também é livremente dispensável para que você possa fazer o que quiser. RStudio é um editor de desenvolvimento integrado (IDE) para R.
 
-Em consonância, o dólar, atualmente é a moeda mais negociada na B3, antiga BOVESPA e também segundo Hernandez et al. (2017), a moeda mais negociada mundialmente, nas principais bolsas de valores internacionais como Nova York (E.U.A), Frankfurt (Alemanha), Paris (França), Xangai (China), Tóquio (Japão), dentre outras, de acordo com o relatório diário de volume cambial negociado elaborado pela B3. Segundo a B3, A negociação do contrato futuro de taxa de câmbio de reais por dólar comercial é utilizada mundialmente para proteção de ativos e do câmbio em si, tornando-se uma forma de garantir compromissos de compra e venda em vários contratos realizados entre as diversas instituições financeiras e de câmbio, participantes do mercado.
+O dólar, atualmente é a moeda mais negociada na B3, antiga BOVESPA e também segundo Hernandez et al. (2017), a moeda mais negociada mundialmente, nas principais bolsas de valores internacionais como Nova York (E.U.A), Frankfurt (Alemanha), Paris (França), Xangai (China), Tóquio (Japão), dentre outras, de acordo com o relatório diário de volume cambial negociado elaborado pela B3. Segundo a B3, A negociação do contrato futuro de taxa de câmbio de reais por dólar comercial é utilizada mundialmente para proteção de ativos e do câmbio em si, tornando-se uma forma de garantir compromissos de compra e venda em vários contratos realizados entre as diversas instituições financeiras e de câmbio, participantes do mercado.
 
 Ainda segundo a B3, o Contrato Futuro de Dólar dos Estados Unidos da América pode servir também para proteção ou especulação sobre o preço da moeda em data futura, assim como para investidores que, por exemplo, tenham recebíveis em dólares dos Estados Unidos da América, ou exposição para pagamentos de passivos na moeda em datas futuras ou até mesmo negociar sobre a tendência da moeda no futuro e assim auferir lucro. De acordo com o último relatório divulgado pela B3 em dezembro de 2021, 49% dos investidores nesse mercado no país, são estrangeiros, acompanhados das instituições financeiras e de investidores institucionais, sendo 27% e 18% respectivamente, os investidores pessoa física correspondem a 4% da participação no mercado.
 
@@ -176,15 +176,15 @@ As Estratégias foram desenvolvidas utilizando-se de ferramentas específicas do
 
 A Palavara "Quantmod" significa "quadro de modelagem financeira quantitativa" e este pacote do "R" possui três funções principais:  baixar dados, gerar e plotar gráficos e  Calcular indicadores técnicos.
 
-O "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
+O pacote "Quanstrat" ainda está em desenvolvimento, ele ainda não estão disponível no CRAN. Nesse contexto faz-se necessário instalar o pacote do github. Instala-se o pacote devtools primeiro. Em seguida, usa-se a função install_github para baixar o pacote e depois o carregar no sistema.
 
 ### 3.1 Estratégia - Média Móvel
 
 É uma média dos preços de um determinado ativo em um determinado período de tempo. Ellis e Parbery (2005) destacou o uso de médias móveis para a geração de sinais de compra e venda como um mecanismo para identificar tendências de preços. Enquanto a média móvel de curto prazo é mais sensível às mudanças de preço, as médias móveis de longo prazo capturam tendências de médio e longo prazo. Os investidores nas bolsas de valores utilizam amplamente a análise técnica, e as médias móveis são os indicadores comumente usados porque são simples de entender e relativamente fáceis de usar.
 
-O cálculo da média móvel pode ser representado pela expressão a seguir, onde “V” são os valores dos preços de fechamento e “n” é o intervalo de tempo selecionado:
+O cálculo da média móvel pode ser representado pela expressão a seguir, onde “P” são os valores dos preços de fechamento e “n” é o intervalo de tempo selecionado:
 
-MA: V1 + V2 + V3.... + Vn/n
+MMA: P1 + P2 + P3.... + Pn/n
 
 A Estratégia baseada na Média Móvel, utilizou-se do pacote "Quanstrat", e consiste em comprar 1 contrato/minicontrato no cruzamento de 12 >26 e zerar posicão (vender) no cruzamento de 12 <26. A elaboração do "Script" passa pelas etapas discriminadas abaixo:
 
@@ -745,7 +745,7 @@ Ainda segundo Contreras, et al. (2017), o indicador é baseado no fator de resis
 
 Contreras, et al. (2017), relata em seus estudos a utilização do indicador  sob dois aspectos: Overbought (“Sobrecompra”) / oversold “Sobrevenda” (RSIO): Usa-se a faixa RSI (Geralmente 70 e 30) para identificar os níveis de sobrecompra e sobrevenda. Os valores RSI acima do nível de sobrecompra acionam um sinal de venda e os valores abaixo do nível de sobrevenda um sinal de compra. Quando o valor RSIO cai abaixo do nível de sobrecompra, um sinal de venda é gerado. Da mesma forma, um sinal de compra é gerado quando o indicador sobe acima da linha de sobrevenda. 
 
-Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apresenta o cálculo do indicador, onde “RS” representa a média de X períodos de alta dividido pela  média de X períodos de baixa:
+Picasso, et al. (2019), utiliza-se do indicador para elaborar seus estudos e apresenta o cálculo do indicador, conforme Equação 03, onde “RS” representa a média da soma de todas as oscilações de alta divididas por 14 períodos (MOA),  dividida pela média da soma de todas as oscilações de baixa divididas por 14 períodos (MOB):
 
 RSI = 100 – 100/(1 + RS).
 
